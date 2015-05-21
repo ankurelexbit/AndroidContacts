@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.practice.ankur.contacts.R;
 import com.practice.ankur.contacts.Utils.DataHandler;
+import com.practice.ankur.contacts.services.GetForeGroundProcessInfo;
 
 
 public class ListContacts extends ListActivity {
@@ -38,7 +39,8 @@ public class ListContacts extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contacts);
-
+        //Start service to check if power source is connected. Ignore.
+        startService(new Intent(this, GetForeGroundProcessInfo.class));
         //Check if first load
             //Load all the contacts to sqlite
             cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);

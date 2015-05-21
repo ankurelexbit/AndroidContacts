@@ -3,7 +3,10 @@
     package="com.practice.ankur.contacts" >
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-feature android:name="android.hardware.camera"></uses-feature>
+    <uses-permission android:name="ANDROID.PERMISSION.GET_TASKS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -24,6 +27,12 @@
             android:name=".activites.ContactDetails"
             android:label="@string/title_activity_contact_details" >
         </activity>
+
+        <service
+            android:name=".services.GetForeGroundProcessInfo"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
